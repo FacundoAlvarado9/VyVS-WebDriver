@@ -14,7 +14,7 @@ public class LoginForm extends PageObject{
     @FindBy(id = "password")
     private WebElement password;
 
-    @FindBy(xpath = "/html/body/center/button")
+    @FindBy(xpath = "/html/body/center/button[normalize-space(text()) = 'Ingresar']")
     private WebElement btnLogin;
 
     @FindBy(id = "estado")
