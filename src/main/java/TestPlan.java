@@ -10,6 +10,10 @@ import java.time.Duration;
 public class TestPlan {
     private static final WebDriver driver = new FirefoxDriver();
 
+    private final String USERNAME = "dumbridge";
+    private final String CORRECT_PASSWORD = "tomriddle";
+    private final String INCORRECT_PASSWORD = "abc123";
+
     @BeforeAll
     public static void start() {
         System.setProperty("webdriver.gecko.driver", Utils.GECKO_DRIVER_LOCATION);
@@ -37,7 +41,7 @@ public class TestPlan {
         driver.get(Utils.BASE_URL);
 
         LoginForm loginForm = new LoginForm(driver);
-        loginForm.enterUsername();
+        loginForm.enterUsername(USERNAME);
         loginForm.pressLoginBtn();
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -49,8 +53,8 @@ public class TestPlan {
         driver.get(Utils.BASE_URL);
 
         LoginForm loginForm = new LoginForm(driver);
-        loginForm.enterUsername();
-        loginForm.enterCorrectPassword();
+        loginForm.enterUsername(USERNAME);
+        loginForm.enterPassword(CORRECT_PASSWORD);
         loginForm.pressLoginBtn();
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -63,8 +67,8 @@ public class TestPlan {
         driver.get(Utils.BASE_URL);
 
         LoginForm loginForm = new LoginForm(driver);
-        loginForm.enterUsername();
-        loginForm.enterWrongPassword();
+        loginForm.enterUsername(USERNAME);
+        loginForm.enterPassword(INCORRECT_PASSWORD);
         loginForm.pressLoginBtn();
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));

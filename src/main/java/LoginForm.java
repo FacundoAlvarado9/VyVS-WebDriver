@@ -4,10 +4,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginForm extends PageObject{
 
-    private final String USERNAME = "dumbridge";
-    private final String CORRECT_PASSWORD = "tomriddle";
-    private final String INCORRECT_PASSWORD = "abc123";
-
     @FindBy(id = "username")
     private WebElement username;
 
@@ -24,16 +20,12 @@ public class LoginForm extends PageObject{
         super(driver);
     }
 
-    public void enterUsername(){
-        this.username.sendKeys(USERNAME);
+    public void enterUsername(String username){
+        this.username.sendKeys(username);
     }
 
-    public void enterCorrectPassword(){
-        this.password.sendKeys(CORRECT_PASSWORD);
-    }
-
-    public void enterWrongPassword(){
-        this.password.sendKeys(INCORRECT_PASSWORD);
+    public void enterPassword(String password){
+        this.password.sendKeys(password);
     }
 
     public void pressLoginBtn(){
