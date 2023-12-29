@@ -101,3 +101,17 @@ These methods are then directly used by the test class, for example in the follo
         Assertions.assertTrue(inicioPage.isThereAWelcomeMessage());
     }
 ```
+
+## Results
+
+![Results](/img/results.png)
+
+### Failed test cases
+
+#### Test case: Username but no password
+![First case](/img/first_case.png)
+
+Here we have a typo. The correct spelling for *empty* in Spanish is *vacío* and not *vació*.
+
+#### Test case: Wrong password test
+Here, the error message for an invalid password could not be found. After testing the website manually, we can see that it successfully logs in with a correct username but incorrect password.
